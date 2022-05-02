@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubemq-server
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    chart: kubemq-charts/kubemq
+    repoURL: https://kubemq-io.github.io/charts
+    targetRevision: 2.2.11
+    helm:
+      releaseName: kubemq-server
+      parameters:
+      - name: key
+        value: {{ .Values.kubemq.key }}
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubemq
