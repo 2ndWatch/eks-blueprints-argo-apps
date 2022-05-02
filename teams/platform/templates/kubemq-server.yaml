@@ -2,8 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kubemq-cluster
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -15,6 +13,13 @@ spec:
       parameters:
       - name: key
         value: {{ .Values.kubemq.key }}
+      - name: replicaCount
+        value: {{ .Values.kubemq.replicaCount }}
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
+  syncPolicy:
+    automated:
+        prune: true
+        allowEmpty: true
+        selfHeal: true

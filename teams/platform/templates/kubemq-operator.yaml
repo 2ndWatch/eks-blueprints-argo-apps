@@ -2,8 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kubemq-operator
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -15,3 +13,8 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
+  syncPolicy:
+    automated:
+        prune: true
+        allowEmpty: true
+        selfHeal: true
