@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kubemq-cluster
+  namespace: argocd
 spec:
   project: default
   source:
@@ -13,6 +14,7 @@ spec:
       parameters:
       - name: key
         value: {{ .Values.kubemq.key }}
+      version: v2
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
