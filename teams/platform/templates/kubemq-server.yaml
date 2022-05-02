@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kubemq-server
+  name: kubemq-cluster
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -11,7 +11,7 @@ spec:
     repoURL: https://kubemq-io.github.io/charts
     targetRevision: 2.2.11
     helm:
-      releaseName: kubemq-server
+      releaseName: kubemq-cluster
       parameters:
       - name: key
         value: {{ .Values.kubemq.key }}
