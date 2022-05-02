@@ -13,8 +13,3 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
-  syncPolicy:
-    automated:
-        prune: true
-        allowEmpty: true
-        selfHeal: true
