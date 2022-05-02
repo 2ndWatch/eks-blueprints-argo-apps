@@ -11,7 +11,7 @@ spec:
     targetRevision: 1.4.0
     helm:
       releaseName: kubemq-operator
-      version: v2
+      version: v1
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
