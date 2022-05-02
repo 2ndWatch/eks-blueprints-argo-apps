@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    chart: kubemq-charts/kubemq
+    chart: kubemq
     repoURL: https://kubemq-io.github.io/charts
     targetRevision: 2.2.11
     helm:

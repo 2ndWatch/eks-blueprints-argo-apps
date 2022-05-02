@@ -6,11 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    chart: kubemq-charts/operator
+    chart: operator
     repoURL: https://kubemq-io.github.io/charts
     targetRevision: 1.4.0
     helm:
       releaseName: kubemq-operator
+      version: v2
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubemq
