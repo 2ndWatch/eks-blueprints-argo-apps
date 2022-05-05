@@ -58,7 +58,7 @@ spec:
         - name: CLUSTER_PORT
           value: "5110"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse.team-platform:4053
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse:4053
         livenessProbe:
           tcpSocket:
             port: 5110
