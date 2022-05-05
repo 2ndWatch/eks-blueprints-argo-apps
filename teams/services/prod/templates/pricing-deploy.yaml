@@ -42,7 +42,7 @@ spec:
         - name: ENABLE_PHOBOS
           value: "true"
         - name: MONGO_CONNECTION_STR
-          value: "mongodb://mongodb:27017/akkaTrader"
+          value: "mongodb://mongodb.team-platform.svc.cluster.local:27017/akkaTrader"
         - name: STATSD_PORT
           value: "8125"
         - name: STATSD_URL

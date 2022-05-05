@@ -79,9 +79,9 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_IP
-          value: "$(POD_NAME).pricing-web"
+          value: "$(POD_NAME).pricing-web.team-web.svc.cluster.local"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://AkkaTrader@pricing-0.team-services:5110,akka.tcp://AkkaTrader@pricing-1.team-services:5110,akka.tcp://AkkaTrader@pricing-2.team-services:5110
+          value: akka.tcp://AkkaTrader@pricing-0.pricing.team-services.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-1.pricing.team-services.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-2.pricing.team-services.svc.cluster.local:5110
         - name: CLUSTER_PORT
           value: "16666"
         - name: ENABLE_PHOBOS
