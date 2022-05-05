@@ -1,6 +1,23 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: pricing-web-preview
+  labels:
+    app: pricing-web-preview
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: '80'
+spec:
+  clusterIP: None
+  ports:
+  - port: 16666
+  selector:
+    app: pricing-web
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: pricing-web
   labels:
     app: pricing-web
