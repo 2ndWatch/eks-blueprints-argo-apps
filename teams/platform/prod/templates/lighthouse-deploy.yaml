@@ -43,7 +43,7 @@ spec:
         - name: CLUSTER_IP
           value: "$(POD_NAME).lighthouse"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse:4053
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0..team-services:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1..team-services:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2..team-services:4053
         livenessProbe:
           tcpSocket:
             port: 4053

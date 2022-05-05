@@ -5,4 +5,4 @@ metadata:
   name: pb-configs
 data:
   # Configuration values can be set as key-value properties
-  environment: Prod
+  environment: Production
