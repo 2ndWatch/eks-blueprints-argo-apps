@@ -58,11 +58,11 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_IP
-          value: "$(POD_NAME).$(NAMESPACE_NAME)"
+          value: "$(POD_NAME).trade-processor"
         - name: CLUSTER_PORT
           value: "5110"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.team-platform:4053
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse.team-platform:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse.team-platform:4053
         livenessProbe:
           tcpSocket:
             port: 5110
