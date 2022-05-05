@@ -56,7 +56,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_IP
-          value: "$(POD_NAME).traders.team-platform.svc.cluster.local"
+          value: "$(POD_NAME).traders"
         - name: CLUSTER_PORT
           value: "5110"
         - name: CLUSTER_SEEDS
