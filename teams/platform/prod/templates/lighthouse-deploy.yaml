@@ -41,7 +41,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_IP
-          value: "$(POD_NAME).lighthouse.team-platform.svc.cluster.local"
+          value: "$(POD_NAME).lighthouse"
         - name: CLUSTER_SEEDS
           value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse.team-platform.svc.cluster.local:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse.team-platform.svc.cluster.local:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse.team-platform.svc.cluster.local:4053
         livenessProbe:
