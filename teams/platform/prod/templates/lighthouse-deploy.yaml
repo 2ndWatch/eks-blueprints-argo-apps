@@ -2,6 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: akka-cqrs
   name: lighthouse
   labels:
     app: lighthouse
@@ -15,6 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  namespace: akka-cqrs
   name: lighthouse
   labels:
     app: lighthouse
@@ -43,7 +45,7 @@ spec:
         - name: CLUSTER_IP
           value: "$(POD_NAME).lighthouse"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse.team-platform.svc.cluster.local:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse.team-platform.svc.cluster.local:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse.team-platform.svc.cluster.local:4053
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse:4053
         livenessProbe:
           tcpSocket:
             port: 4053
