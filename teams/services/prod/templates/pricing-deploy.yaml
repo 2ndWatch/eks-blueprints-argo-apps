@@ -25,7 +25,7 @@ metadata:
     app: pricing
 spec:
   serviceName: pricing
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: pricing
