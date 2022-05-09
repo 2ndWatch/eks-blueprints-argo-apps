@@ -81,7 +81,7 @@ spec:
         - name: CLUSTER_IP
           value: "$(POD_NAME).pricing-web"
         - name: CLUSTER_SEEDS
-          value: akka.tcp://AkkaTrader@pricing-0.pricing.team-services.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-1.pricing.team-services.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-2.pricing.team-services.svc.cluster.local:5110
+          value: akka.tcp://AkkaTrader@pricing-0.pricing.akka-cqrs.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-1.pricing.akka-cqrs.svc.cluster.local:5110,akka.tcp://AkkaTrader@pricing-2.pricing.akka-cqrs.svc.cluster.local:5110
         - name: CLUSTER_PORT
           value: "16666"
         - name: ENABLE_PHOBOS
