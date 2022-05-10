@@ -62,7 +62,7 @@ spec:
   rules:
     - http:
         paths:
-        - path: /*
+        - path: /hubs/stockHub
           pathType: Prefix
           backend:
             service:
