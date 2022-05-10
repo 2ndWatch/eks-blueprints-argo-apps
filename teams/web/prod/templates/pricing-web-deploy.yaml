@@ -62,7 +62,8 @@ spec:
   rules:
     - http:
         paths:
-        - path: /*
+        - path: /
+          pathType: Prefix
           backend:
             service:
               name: pricing-ui
