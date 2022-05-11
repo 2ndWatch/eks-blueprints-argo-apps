@@ -13,7 +13,7 @@ spec:
   ports:
   - port: 16666
   selector:
-    app: pricing-web-preview
+    app: pricing-web
 ---
 apiVersion: v1
 kind: Service
@@ -32,21 +32,21 @@ spec:
   selector:
     app: pricing-web
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: pricing-ui
-  labels:
-    app: pricing-web
-spec:
-  ports:
-    - name: query-http
-      port: 80
-      protocol: TCP
-      targetPort: 80
-  selector:
-    app: pricing-web
-  type: NodePort
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: pricing-ui
+#   labels:
+#     app: pricing-web
+# spec:
+#   ports:
+#     - name: query-http
+#       port: 80
+#       protocol: TCP
+#       targetPort: 80
+#   selector:
+#     app: pricing-web
+#   type: NodePort
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
