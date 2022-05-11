@@ -10,7 +10,8 @@ metadata:
     prometheus.io/port: '80'
 spec:
   ports:
-  - port: 80
+  - name: query-http
+    port: 80
     targetPort: 80
   selector:
     app: pricing-web
@@ -27,7 +28,8 @@ metadata:
     prometheus.io/port: '80'
 spec:
   ports:
-  - port: 80
+  - name: query-http
+    port: 80
     targetPort: 80
   selector:
     app: pricing-web
