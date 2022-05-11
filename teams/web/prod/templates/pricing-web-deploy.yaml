@@ -90,8 +90,8 @@ spec:
       app: pricing-web
   strategy:
     blueGreen:
-      activeService: pricing-web
-      previewService: pricing-web-preview
+      activeService: pricing-ui
+      previewService: pricing-ui-preview
       autoPromotionEnabled: false
   template:
     metadata:
