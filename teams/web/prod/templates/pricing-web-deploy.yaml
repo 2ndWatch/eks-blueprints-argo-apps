@@ -62,12 +62,12 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: pricing-web-preview
+            name: pricing-ui-preview
             port:
               number: 80
   - http:
       paths:
-      - path: /green/
+      - path: /
         pathType: Prefix
         backend:
           service:
