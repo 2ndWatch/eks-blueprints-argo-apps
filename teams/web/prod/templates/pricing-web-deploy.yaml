@@ -121,6 +121,8 @@ spec:
           value: "statsd-agent"
         - name: JAEGER_AGENT_HOST
           value: "jaeger-agent"
+        - name: "TEST"
+          value: "test1"
         - name: ASPNETCORE_ENVIRONMENT
           valueFrom:
             configMapKeyRef:
