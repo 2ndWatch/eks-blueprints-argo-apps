@@ -868,7 +868,7 @@ data:
             "expr": "sum(rate(container_cpu_usage_seconds_total{image!=\"\",name=~\"^k8s_.*\",kubernetes_io_hostname=~\"^$Node$\"}[1m])) by (pod_name)",
             "interval": "",
             "intervalFactor": 2,
-            "legendFormat": "{{ pod_name }}",
+            "legendFormat": "{{`{{ pod_name }}`}}",
             "metric": "container_cpu",
             "refId": "A",
             "step": 240
@@ -950,7 +950,7 @@ data:
             "expr": "sum (container_memory_working_set_bytes{image!=\"\",name=~\"^k8s_.*\",instance=~\"^$instance$\",namespace=~\"^$namespace$\"}) by (pod_name)",
             "interval": "",
             "intervalFactor": 2,
-            "legendFormat": "{{ pod_name }}",
+            "legendFormat": "{{`{{ pod_name }}`}}",
             "metric": "",
             "refId": "A",
             "step": 240
@@ -1031,7 +1031,7 @@ data:
             "expr": "sum (rate (container_network_receive_bytes_total{image!=\"\",name=~\"^k8s_.*\",instance=~\"^$instance$\",namespace=~\"^$namespace$\"}[1m])) by (pod_name)",
             "interval": "",
             "intervalFactor": 2,
-            "legendFormat": "{{ pod_name }} < in",
+            "legendFormat": "{{`{{ pod_name }}`}} < in",
             "metric": "network",
             "refId": "A",
             "step": 240
@@ -1039,7 +1039,7 @@ data:
             "expr": "- sum (rate (container_network_transmit_bytes_total{image!=\"\",name=~\"^k8s_.*\",instance=~\"^$instance$\",namespace=~\"^$namespace$\"}[1m])) by (pod_name)",
             "interval": "",
             "intervalFactor": 2,
-            "legendFormat": "{{ pod_name }} > out",
+            "legendFormat": "{{`{{ pod_name }}`}} > out",
             "metric": "network",
             "refId": "B",
             "step": 240
@@ -1120,7 +1120,7 @@ data:
             "expr": "sum(container_fs_usage_bytes{image!=\"\",name=~\"^k8s_.*\",instance=~\"^$instance$\",namespace=~\"^$namespace$\"}) by (pod_name)",
             "interval": "",
             "intervalFactor": 2,
-            "legendFormat": "{{ pod_name }}",
+            "legendFormat": "{{`{{ pod_name }}`}}",
             "metric": "network",
             "refId": "A",
             "step": 240
