@@ -9,9 +9,10 @@ metadata:
     prometheus.io/path: '/metrics'
     prometheus.io/port: '80'
 spec:
-  clusterIP: None
+  type: NodePort
   ports:
-  - port: 16666
+  - port: 80
+    targetPort: 16666
   selector:
     app: pricing-web
 ---
@@ -26,9 +27,10 @@ metadata:
     prometheus.io/path: '/metrics'
     prometheus.io/port: '80'
 spec:
-  clusterIP: None
+  type: NodePort
   ports:
-  - port: 16666
+  - port: 80
+    targetPort: 16666
   selector:
     app: pricing-web
 ---
