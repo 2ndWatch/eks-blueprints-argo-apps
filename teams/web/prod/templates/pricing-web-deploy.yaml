@@ -70,7 +70,7 @@ spec:
           service:
             name: pricing-web-preview
             port:
-              number: 16666
+              number: 80
   - http:
       paths:
       - path: /green/
@@ -79,7 +79,7 @@ spec:
           service:
             name: pricing-web
             port:
-              number: 16666
+              number: 80
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
