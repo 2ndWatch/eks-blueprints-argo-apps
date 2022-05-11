@@ -1945,7 +1945,7 @@ data:
             "for": "1m",
             "frequency": "30s",
             "handler": 1,
-            "message": "{{B}} nodes have been unreachable for at least 1 minute.",
+            "message": "{{`{{B}}`}} nodes have been unreachable for at least 1 minute.",
             "name": "Unreachable Akka.Cluster Nodes",
             "noDataState": "no_data",
             "notifications": []
@@ -2000,7 +2000,7 @@ data:
             {
               "expr": "ceil(avg by(status)(akka_net_akka_cluster_members))",
               "interval": "",
-              "legendFormat": "{{status}}",
+              "legendFormat": "{{`{{status}}`}}",
               "refId": "A"
             },
             {
@@ -2150,7 +2150,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{level}}",
+              "legendFormat": "{{`{{level}}`}}",
               "refId": "A"
             }
           ],
@@ -2408,7 +2408,7 @@ data:
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "Total Actors [{{cluster_role}} ({{akka_address}})]",
+              "legendFormat": "Total Actors [{{`{{cluster_role}} ({{akka_address}})`}}]",
               "refId": "A"
             }
           ],
@@ -2601,14 +2601,14 @@ data:
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{actortype}} created",
+              "legendFormat": "{{`{{actortype}}`}} created",
               "refId": "A"
             },
             {
               "expr": "topk(10,sum by(actortype)(akka_net_akka_actor_stopped{cluster_role=~\"$role\",akka_address=~\"$address\"}))",
               "instant": true,
               "interval": "",
-              "legendFormat": "{{actortype}} terminated",
+              "legendFormat": "{{`{{actortype}}`}} terminated",
               "refId": "B"
             }
           ],
@@ -2665,7 +2665,7 @@ data:
               "format": "table",
               "instant": true,
               "interval": "",
-              "legendFormat": "{{actortype}},{{exceptiontype}}",
+              "legendFormat": "{{`{{actortype}},{{exceptiontype}}`}}",
               "refId": "A"
             }
           ],
@@ -2724,7 +2724,7 @@ data:
               "hide": false,
               "instant": true,
               "interval": "",
-              "legendFormat": "{{messagetype}}",
+              "legendFormat": "{{`{{messagetype}}`}}",
               "refId": "A"
             },
             {
@@ -2732,7 +2732,7 @@ data:
               "hide": true,
               "instant": false,
               "interval": "",
-              "legendFormat": "{{messagetype}}",
+              "legendFormat": "{{`{{messagetype}}`}}",
               "refId": "B"
             }
           ],
@@ -2793,7 +2793,7 @@ data:
               "hide": false,
               "instant": true,
               "interval": "",
-              "legendFormat": "{{messagetype}}",
+              "legendFormat": "{{`{{messagetype}}`}}",
               "refId": "A"
             }
           ],
