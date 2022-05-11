@@ -61,8 +61,9 @@ spec:
   ingressClassName: alb
   rules:
   - http:
+      host: preview-akka-cqrs
       paths:
-      - path: /blue/*
+      - path: /
         pathType: Prefix
         backend:
           service:
@@ -70,8 +71,9 @@ spec:
             port:
               number: 16666
   - http:
+      host: akka-cqrs
       paths:
-      - path: /green/*
+      - path: /
         pathType: Prefix
         backend:
           service:
