@@ -61,7 +61,6 @@ spec:
   ingressClassName: alb
   rules:
   - http:
-      host: preview-akka-cqrs
       paths:
       - path: /blue/
         pathType: Prefix
