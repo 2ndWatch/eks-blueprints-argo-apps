@@ -71,7 +71,6 @@ spec:
             port:
               number: 16666
   - http:
-      host: akka-cqrs
       paths:
       - path: /green/
         pathType: Prefix
