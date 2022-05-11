@@ -1,38 +1,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pricing-web-preview
+  name: pricing-ui-preview
   labels:
-    app: pricing-web-preview
-  annotations:
-    prometheus.io/scrape: 'true'
-    prometheus.io/path: '/metrics'
-    prometheus.io/port: '80'
+    app: pricing-ui-preview
 spec:
   ports:
   - name: query-http
-    port: 16666
+    port: 80
     targetPort: 80
   selector:
     app: pricing-web
+  type: NodePort
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: pricing-web
+  name: pricing-ui
   labels:
     app: pricing-web
-  annotations:
-    prometheus.io/scrape: 'true'
-    prometheus.io/path: '/metrics'
-    prometheus.io/port: '80'
 spec:
   ports:
   - name: query-http
-    port: 16666
+    port: 80
     targetPort: 80
   selector:
     app: pricing-web
+  type: NodePort
 ---
 # apiVersion: v1
 # kind: Service
@@ -77,7 +71,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: pricing-web
+            name: pricing-ui
             port:
               number: 80
 ---
