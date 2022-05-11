@@ -13,7 +13,7 @@ spec:
   ports:
   - port: 16666
   selector:
-    app: pricing-web
+    app: pricing-web-preview
 ---
 apiVersion: v1
 kind: Service
@@ -60,15 +60,24 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: pricing-ui
-              port:
-                number: 80
+  - http:
+      paths:
+      - path: /blue/*
+        pathType: Prefix
+        backend:
+          service:
+            name: pricing-web-preview
+            port:
+              number: 16666
+  - http:
+      paths:
+      - path: /green/*
+        pathType: Prefix
+        backend:
+          service:
+            name: pricing-web
+            port:
+              number: 16666
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
@@ -86,6 +95,7 @@ spec:
     blueGreen:
       activeService: pricing-web
       previewService: pricing-web-preview
+      autoPromotionEnabled: false
   template:
     metadata:
       labels:
