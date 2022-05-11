@@ -63,7 +63,7 @@ spec:
   - http:
       host: preview-akka-cqrs
       paths:
-      - path: /
+      - path: /blue/
         pathType: Prefix
         backend:
           service:
@@ -73,7 +73,7 @@ spec:
   - http:
       host: akka-cqrs
       paths:
-      - path: /
+      - path: /green/
         pathType: Prefix
         backend:
           service:
