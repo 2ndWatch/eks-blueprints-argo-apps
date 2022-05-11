@@ -58,7 +58,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: CLUSTER_IP
-          value: "$(POD_NAME).traders"
+          value: "$(POD_NAME).traders.akka-cqrs.svc.cluster.local"
         - name: CLUSTER_PORT
           value: "5110"
         - name: CLUSTER_SEEDS
