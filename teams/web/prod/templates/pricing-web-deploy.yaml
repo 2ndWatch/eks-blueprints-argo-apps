@@ -92,6 +92,10 @@ spec:
     blueGreen:
       activeService: pricing-ui
       previewService: pricing-ui-preview
+
+      trafficRouting:
+        alb:
+          ingres: pricing-ui
       autoPromotionEnabled: false
   template:
     metadata:
