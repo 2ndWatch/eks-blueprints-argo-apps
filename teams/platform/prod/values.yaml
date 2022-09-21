@@ -1,3 +1,6 @@
 kubemq:
   key: 6e19cb26-c1a9-4d79-b9a6-cf1cbe1a21a2
   replicaCount: "3"
+spec:
+  destination:
+    server: https://kubernetes.default.svc
