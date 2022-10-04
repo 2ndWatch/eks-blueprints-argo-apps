@@ -6,11 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    chart: bitnami/rabbitmq
+    chart: rabbitmq
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 10.3.7
     helm:
       releaseName: rabbitmq
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: argo
+    namespace: default
