@@ -2,13 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: team-services
-  name: efx-svc
-  labels:
-    app: efx-svc
+  name: efx-service
 spec:
-  clusterIP: None
   ports:
-  - port: 5000
+  - port: 80
+    targetPort: http-web-svc
   selector:
     app: efx-svc
 ---
@@ -16,12 +14,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: team-services
-  name: efx-svc
-  labels:
-    app: efx-svc
+  name: efx-svc-deployment
 spec:
-  serviceName: efx-svc
-  replicas: 2
   selector:
     matchLabels:
       app: efx-svc
@@ -32,16 +26,16 @@ spec:
     spec:
       terminationGracePeriodSeconds: 35
       containers:
-      - name: trade-processor
-        image: hello-world:0.2.1
+      - name: dotnet
+        image: mcr.microsoft.com/dotnet/samples:dotnetapp
         env:
-        - name: FOO
-          value: bar
+        - name: Database__ConnectionString
+          value: "TEST"
         livenessProbe:
           tcpSocket:
-            port: 5110
+            port: 80
         ports:
-        - containerPort: 5000
-          protocol: TCP
         - containerPort: 80
           protocol: TCP
+          name: http-web
+
