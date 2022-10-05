@@ -27,7 +27,7 @@ spec:
       terminationGracePeriodSeconds: 35
       containers:
       - name: dotnet
-        image: mcr.microsoft.com/dotnet/samples:dotnetapp:aspnetapp
+        image: mcr.microsoft.com/dotnet/samples:aspnetapp
         env:
         - name: Database__ConnectionString
           value: "TEST"
