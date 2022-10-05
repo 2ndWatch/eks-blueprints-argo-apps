@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: http-web-svc
+    targetPort: http-web
   selector:
     app: efx-svc
 ---
