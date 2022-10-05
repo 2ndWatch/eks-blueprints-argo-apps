@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: team-services
+  name: efx-svc
+  labels:
+    app: efx-svc
+spec:
+  clusterIP: None
+  ports:
+  - port: 5000
+  selector:
+    app: efx-svc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: team-services
+  name: efx-svc
+  labels:
+    app: efx-svc
+spec:
+  serviceName: efx-svc
+  replicas: 2
+  selector:
+    matchLabels:
+      app: efx-svc
+  template:
+    metadata:
+      labels:
+        app: efx-svc
+    spec:
+      terminationGracePeriodSeconds: 35
+      containers:
+      - name: trade-processor
+        image: hello-world:0.2.1
+        env:
+        - name: Database__ConnectionString
+          valueFrom:
+            secretKeyRef:
+              name: MongoSecret
+              key: dbconnstring
+        - name: "Debug"
+          value: "True"
+        livenessProbe:
+          tcpSocket:
+            port: 5110
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        - containerPort: 80
+          protocol: TCP
+
